@@ -36,7 +36,7 @@ public class PizzeriaAdminConsoleApp {
 			dao.saveNewPizza(new Pizza("IND", "L’indienne", 14.00F,CategoriePizza.VIANDE));
 			
 		} catch (SavePizzaException e) {
-			// TODO Auto-generated catch block
+			
 			throw new SavePizzaException("erreur création pizza");
 		}
 		
