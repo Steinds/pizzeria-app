@@ -1,6 +1,6 @@
 package fr.pizzeria.ihm;
 
-import fr.pizzeria.Dao.IPizzaDao;
+import fr.pizzeria.Dao.pizza.IPizzaDao;
 
 
 public abstract class OptionMenu{

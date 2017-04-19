@@ -2,8 +2,10 @@ package fr.pizzeria.console;
 
 import java.util.Scanner;
 
-import fr.pizzeria.Dao.IPizzaDao;
-import fr.pizzeria.Dao.PizzaDaoImpl;
+import fr.pizzeria.Dao.DaoFactory;
+import fr.pizzeria.Dao.DaoFichierFactory;
+import fr.pizzeria.Dao.pizza.IPizzaDao;
+import fr.pizzeria.Dao.pizza.PizzaDaoImpl;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.ihm.ListerPizzasOptionMenu;
 import fr.pizzeria.ihm.Menu;
@@ -17,10 +19,11 @@ import fr.pizzeria.model.*;
 public class PizzeriaAdminConsoleApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//Pizza[] listePizza;
+		DaoFactory daoFactory = new DaoFichierFactory();
+		IPizzaDao dao = daoFactory.getPizzaDao();
 		
-		IPizzaDao dao = new PizzaDaoImpl();
+		
+		//IPizzaDao dao = new PizzaDaoImpl();
 		try {
 			dao.saveNewPizza(new Pizza("PEP", "Pépéroni", 12.50F,CategoriePizza.VIANDE));
 			dao.saveNewPizza(new Pizza("MAR", "Margherita", 14.00F,CategoriePizza.VIANDE));
@@ -30,9 +33,10 @@ public class PizzeriaAdminConsoleApp {
 			dao.saveNewPizza(new Pizza("SAV", "La savoyarde", 13.00F,CategoriePizza.SANS_VIANDE));
 			dao.saveNewPizza(new Pizza("ORI", "L’orientale", 13.50F,CategoriePizza.VIANDE));
 			dao.saveNewPizza(new Pizza("IND", "L’indienne", 14.00F,CategoriePizza.VIANDE));
+			
 		} catch (SavePizzaException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new SavePizzaException("erreur création pizza");
 		}
 		
 		//int i;

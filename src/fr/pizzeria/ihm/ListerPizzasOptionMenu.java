@@ -2,7 +2,7 @@ package fr.pizzeria.ihm;
 
 import java.util.List;
 
-import fr.pizzeria.Dao.IPizzaDao;
+import fr.pizzeria.Dao.pizza.IPizzaDao;
 import fr.pizzeria.model.Pizza;
 
 

@@ -1,8 +1,8 @@
 package fr.pizzeria.ihm;
 
-import java.util.Scanner; 
+import java.util.Scanner;
 
-import fr.pizzeria.Dao.IPizzaDao;
+import fr.pizzeria.Dao.pizza.IPizzaDao;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -22,7 +22,7 @@ public class MettreAJourOptionMenu extends OptionMenu{
 		Scanner choiceUser = new Scanner(System.in);
 		
 		//	listerPizza(listePizza);
-		System.out.println("Veuillez choisir la pizza à modifier(CODE)");
+		System.out.println("Veuillez choisir la pizza ï¿½ modifier(CODE)");
 		String num = choiceUser.next();
 		
 		System.out.println("Veuillez saisir le code");
