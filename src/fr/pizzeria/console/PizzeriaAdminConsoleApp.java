@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import fr.pizzeria.Dao.DaoFactory;
 import fr.pizzeria.Dao.DaoFichierFactory;
+import fr.pizzeria.Dao.DaoMemoireFactory;
 import fr.pizzeria.Dao.pizza.IPizzaDao;
 import fr.pizzeria.Dao.pizza.PizzaDaoImpl;
 import fr.pizzeria.exception.SavePizzaException;
