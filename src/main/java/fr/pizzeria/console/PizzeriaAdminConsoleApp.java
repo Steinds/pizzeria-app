@@ -1,6 +1,9 @@
 package fr.pizzeria.console;
 
+import java.io.IOException;
 import java.util.Scanner;
+
+import com.github.lalyos.jfiglet.FigletFont;
 
 import fr.pizzeria.Dao.DaoFactory;
 import fr.pizzeria.Dao.DaoFichierFactory;
@@ -19,21 +22,21 @@ import fr.pizzeria.model.*;
 
 public class PizzeriaAdminConsoleApp {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		DaoFactory daoFactory = new DaoFichierFactory();
 		IPizzaDao dao = daoFactory.getPizzaDao();
 		
 		
 		//IPizzaDao dao = new PizzaDaoImpl();
 		try {
-			dao.saveNewPizza(new Pizza("PEP", "Pépéroni", 12.50F,CategoriePizza.VIANDE));
+			dao.saveNewPizza(new Pizza("PEP", "Peperoni", 12.50F,CategoriePizza.VIANDE));
 			dao.saveNewPizza(new Pizza("MAR", "Margherita", 14.00F,CategoriePizza.VIANDE));
 			dao.saveNewPizza(new Pizza("REI", "La Reine", 11.50F,CategoriePizza.VIANDE));
 			dao.saveNewPizza(new Pizza("FRO", "La 4 fromages", 12.00F,CategoriePizza.SANS_VIANDE));
 			dao.saveNewPizza(new Pizza("CAN", "La cannibale", 12.50F,CategoriePizza.VIANDE));
 			dao.saveNewPizza(new Pizza("SAV", "La savoyarde", 13.00F,CategoriePizza.SANS_VIANDE));
-			dao.saveNewPizza(new Pizza("ORI", "L’orientale", 13.50F,CategoriePizza.VIANDE));
-			dao.saveNewPizza(new Pizza("IND", "L’indienne", 14.00F,CategoriePizza.VIANDE));
+			dao.saveNewPizza(new Pizza("ORI", "L'orientale", 13.50F,CategoriePizza.VIANDE));
+			dao.saveNewPizza(new Pizza("IND", "L'indienne", 14.00F,CategoriePizza.VIANDE));
 			
 		} catch (SavePizzaException e) {
 			
@@ -51,7 +54,8 @@ public class PizzeriaAdminConsoleApp {
 		
 		
 		Menu menu = new Menu();
-		
+		String asciiArt = FigletFont.convertOneLine("Welcome");
+	    System.out.println(asciiArt);
 		menu.setTitre("****** Pizzeria Administration *****");		
 		menu.ajouterAction(new ListerPizzasOptionMenu(dao, "Liste des Pizzas"));
 		menu.ajouterAction(new NouvellePizzaOptionMenu(dao,"Ajout d'une nouvelle Pizza"));
